@@ -5,9 +5,10 @@ body {
 
 nav{
   background-color: #ffd900;
-  height: 10vh;
+  height: 18vh;
   color: #000;
   font-weight: 500;
+  font-size: 5vh;
   box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.15),
     0 2.5rem 5rem 0 rgba(255, 255, 255, 0.15);
 }
