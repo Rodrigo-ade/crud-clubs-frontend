@@ -1,4 +1,4 @@
-import ListedTeam from "./components/ListedTeam";
+import ListedTeam from "../components/ListedTeam";
 
 function List() {
   return (

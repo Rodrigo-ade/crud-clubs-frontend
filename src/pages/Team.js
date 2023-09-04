@@ -1,5 +1,5 @@
 import React from "react";
-import Location from "./components/Location";
+import Location from "../components/Location";
 function Team() {
   return (
     <div className="team">
