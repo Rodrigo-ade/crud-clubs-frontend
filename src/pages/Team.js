@@ -27,8 +27,8 @@ function Team() {
       </div>
       <div className="">
         <div className="col text-start mt-1 p-3">
-          <p><strong>{clubData && clubData.phone}</strong></p>
-          <p><strong>{clubData && clubData.email}</strong></p>
+          <p><strong>{clubData && `Phone: ${clubData.phone}`}</strong></p>
+          <p><strong>{clubData && clubData.email != null && `Email: ${clubData.email}`}</strong></p>
         </div>
         <div className="col mt-1 pb-5">
           <a href="/"><button className="btn btn-info">Back to clubs</button></a>
