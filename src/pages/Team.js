@@ -1,5 +1,6 @@
 import React from "react";
 import Location from "../components/Location";
+
 function Team() {
   return (
     <div className="container club text-center mt-1 mb-5">
