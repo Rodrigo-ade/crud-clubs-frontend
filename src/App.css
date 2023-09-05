@@ -1,16 +1,16 @@
 body {
   background-color: #000;
-  color: white;
+  color: rgb(255, 217, 0);
 }
 
 nav{
-  background-color: #ffd900;
-  height: 18vh;
+  background-color: rgba(255, 217, 0, 0.9);
+  height: 11vh;
   color: #000;
   font-weight: 500;
-  font-size: 5vh;
-  box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.15),
-    0 2.5rem 5rem 0 rgba(255, 255, 255, 0.15);
+  font-size: 4vh;
+  box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.3),
+    0 2.5rem 5rem 0 rgba(255, 255, 255, 0.3);
 }
 
 nav div{
@@ -53,4 +53,24 @@ img{
   border-radius: 11px;
   box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.2),
     0 2.5rem 5rem 0 rgba(255, 255, 255, 0.1);
+}
+
+.club-list{
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.listed-club{
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(172, 172, 172);
+  border: rgba(255, 217, 0, 0.4) 1px solid;
+}
+
+.listed-club:hover{
+  background-color: rgb(21, 21, 21);
+  border: rgba(255, 217, 0, 1) 1px solid;
+}
+
+.listed-club-image{
+  max-height: 80px;
 }
