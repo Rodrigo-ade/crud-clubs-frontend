@@ -37,7 +37,7 @@ img{
   max-height: 200px;
 }
 
-.club{
+.club-container{
   background-color: #474747;
   border-top-left-radius: 70px;
   border-top-right-radius: 10px;
@@ -45,8 +45,15 @@ img{
   border-bottom-left-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.2),
     0 2.5rem 5rem 0 rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    background-color: rgb(34, 34, 34);
+  color: #bfbfbf;
+  background-color: rgb(34, 34, 34);
+}
+
+.club-container:hover{
+  box-shadow: 0 2px 4px 0 rgba(255, 217, 0, 0.2),
+    0 2.5rem 5rem 0 rgba(255, 217, 0, 0.2);
+  color: #ffffff;
+  padding: 5px;
 }
 
 .map{

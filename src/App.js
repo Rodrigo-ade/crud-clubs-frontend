@@ -12,15 +12,16 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <>
-      <NavBar />    
-      <Routes>
-        <Route path='/' element={<List />} />
-        <Route path='/clubs/:clubTla' element={<Team />} />
-        <Route path='/form' element={<Form />} />
-        <Route path='/edit/clubs/:clubTla' element={<Form />} />
-
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <NavBar />
+      <div className='p-3'>
+        <Routes>
+          <Route path='/' element={<List />} />
+          <Route path='/clubs/:clubTla' element={<Team />} />
+          <Route path='/form' element={<Form />} />
+          <Route path='/edit/clubs/:clubTla' element={<Form />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   );
 }
