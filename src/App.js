@@ -2,8 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/Navbar';
 
-
-
 import List from './pages/List';
 import Team from './pages/Team';
 import Form from './pages/Form';
