@@ -13,7 +13,7 @@ function ListedTeam() {
           <button className="btn btn-sm btn-warning m-1">Remove</button>
         </div>
         <div className="col align-self-center">
-          <img className="img-fluid listed-club-image" alt="Arsenal FC" src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"></img>
+          <img className="listed-club-image" alt="Arsenal FC" src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"></img>
         </div>
       </div>
     </li>
