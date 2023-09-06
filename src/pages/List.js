@@ -7,9 +7,13 @@ function List() {
   const [clubsList, setClubsList] = useState(null);
 
   useEffect(() => {
-    getClubs().then((data) => {
-      setClubsList(data.map((club) => <ListedTeam name={club.name} crestUrl={club.crestUrl} tla={club.tla} key={club.id}/>));
-    });
+    getClubs()
+      .then((clubs) => {
+        setClubsList(clubs.map((club) => <ListedTeam name={club.name} crestUrl={club.crestUrl} tla={club.tla} key={club.id}/>))
+      })
+      .catch(err => {
+        setClubsList([]);
+      })
   },[]);
 
   const list = (
