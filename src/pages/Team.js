@@ -3,15 +3,16 @@ import { useParams } from "react-router-dom";
 import Location from '../components/Location.js';
 import Loading from '../components/Loading.js';
 import { getClub } from '../services/clubs.js';
+import NotFound from './NotFound.js';
 
 function Team() {
   const [clubData, setClubData] = useState(null);
   let { clubTla } = useParams();
   
   useEffect(() => {
-    getClub(clubTla).then((club) => {
-        setClubData(club[0]);
-    });
+    getClub(clubTla)
+      .then((club) => {setClubData(club[0]);})
+      .catch((err) => {setClubData('')});
   },[clubTla]);
 
   const club = (
@@ -37,7 +38,14 @@ function Team() {
     </div>
   );
 
-  return clubData ? club : <Loading/> ;
+  if(clubData === null) {
+    return <Loading />;
+  }
+  if(clubData) {
+    return club;
+  }else {
+    return <NotFound />;
+  }
 }
 
 export default Team;
