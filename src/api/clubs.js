@@ -7,3 +7,7 @@ export async function getClubs() {
 export async function getClub(clubTla) {
   return (await fetch(`${URL}/clubs/${clubTla}`)).json();
 }
+
+export async function addClub(clubData) {
+  return (await fetch(`${URL}/clubs`, {method: 'POST', body: clubData}));
+}

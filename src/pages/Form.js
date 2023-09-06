@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from 'react';
+import { addClub } from '../services/clubs.js';
+import NotFound from './NotFound.js';
+import Loading from '../components/Loading.js';
+import Success from '../components/Success.js';
 
 function Form() {
-  return(
-    <form className="form-new-club mb-5 p-3" action="{{data.action}}" encType="multipart/form-data" method="{{data.method}}">
+  const [status, setStatus] = useState('form');
+
+  function handleSubmit(e){
+    e.preventDefault();
+    setStatus('loading');
+    const formData = new FormData(e.target);
+    addClub(formData)
+      .then((res) => {setStatus('success');})
+      .catch((err) => {setStatus('');});
+  }
+
+  const form =(
+    <form className="form-new-club mb-5 p-3" encType="multipart/form-data" onSubmit={handleSubmit}>
       <h1 className="text-center">Add/Edit your club</h1>
       <div style={{width:"70%", margin:"0 auto"}}>
         <div className="mb-3">
@@ -42,7 +57,7 @@ function Form() {
 
         <div className="mb-3">
           <label htmlFor="clubWebsite" className="form-label">Website</label>
-          <input required type="text" className="form-control" id="clubWebsite" name="{{data.website}}" placeholder="www.bocajuniors.com" /> 
+          <input required type="text" className="form-control" id="clubWebsite" name="website" placeholder="www.bocajuniors.com" /> 
         </div>
 
         <div className="mb-3">
@@ -71,10 +86,19 @@ function Form() {
           <input required type="text" className="form-control" id="clubVenue" name="venue" placeholder="La Bombonera" />
         </div>
       </div>
-
+        
       <button className="btn btn-warning ms-5" type="submit">Add/Edit Club</button>
     </form>
   );
+
+  if (status === 'form') return form;
+  if (status === 'loading') return <Loading />;
+  if (status === 'success') return <Success />;
+  else return <NotFound />;
+
+
+
+
 }
 
 export default Form;
