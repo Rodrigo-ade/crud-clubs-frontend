@@ -95,10 +95,6 @@ function Form() {
   if (status === 'loading') return <Loading />;
   if (status === 'success') return <Success />;
   else return <NotFound />;
-
-
-
-
 }
 
 export default Form;
