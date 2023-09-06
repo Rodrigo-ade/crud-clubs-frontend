@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { addClub, getClub } from '../services/clubs.js';
+import { addClub, getClub, editClub } from '../services/clubs.js';
 import NotFound from './NotFound.js';
 import Loading from '../components/Loading.js';
 import Success from '../components/Success.js';
 
-function Form() {
+
+function Form(props) {
   const { clubTla } = useParams();
   const [status, setStatus] = useState('form');
 
@@ -21,6 +22,24 @@ function Form() {
   const [clubColor1, setClubColor1] = useState('');
   const [clubColor2, setClubColor2] = useState('');
   const [venue, setVenue] = useState('');
+
+  function handleAdd(e) {
+    e.preventDefault();
+    setStatus('loading');
+    const formData = new FormData(e.target);
+    addClub(formData)
+      .then((res) => {setStatus('success');})
+      .catch((err) => {setStatus('');});
+  }
+
+  function handleEdit(e) {
+    e.preventDefault();
+    setStatus('loading');
+    const formData = new FormData(e.target);
+    editClub(clubTla, formData)
+      .then((res) => {setStatus('success')})
+      .catch((err) => {setStatus('');});
+  }
 
   useEffect(() => {
     if(clubTla) {
@@ -40,20 +59,13 @@ function Form() {
         setVenue(club.venue || '');
       });
     }
-  });
 
-  function handleSubmit(e){
-    e.preventDefault();
-    setStatus('loading');
-    const formData = new FormData(e.target);
-    addClub(formData)
-      .then((res) => {setStatus('success');})
-      .catch((err) => {setStatus('');});
-  }
+  },[clubTla]);
 
   const form =(
-    <form className="form-new-club mb-5 p-3" encType="multipart/form-data" onSubmit={handleSubmit}>
-      <h1 className="text-center">Add/Edit your club</h1>
+    <form className="form-new-club mb-5 p-3" encType="multipart/form-data" onSubmit={props.action === 'Add' ? handleAdd: handleEdit}>
+      <h1 className="text-center">{props.action === 'Add' && `Add club`}</h1>
+      <h1 className="text-center">{props.action === 'Edit' && `Edit club`}</h1>
       <div style={{width:"70%", margin:"0 auto"}}>
         <div className="mb-3">
           <label htmlFor="clubName" className="form-label">Club name</label>
@@ -71,7 +83,9 @@ function Form() {
 
         <div className="mb-3">
           <label htmlFor="tlaClubName" className="form-label">Three-letter acronym</label>
-          <input required type="text" className="form-control disabled" id="tlaClubName" name="tla" placeholder="BOC" value={tla} readOnly />
+          <input required type="text" className="form-control disabled" id="tlaClubName" name="tla" 
+            placeholder="BOC" value={tla} onChange={e => setTla(e.target.value)} readOnly={props.action === 'Edit' && true}
+          />
         </div>
 
         <div className="mb-3">
@@ -144,7 +158,9 @@ function Form() {
         </div>
       </div>
         
-      <button className="btn btn-warning ms-5" type="submit">Add/Edit Club</button>
+      {props.action === 'Add' && <button className="btn btn-success ms-5" type="submit">Add Club</button>}
+      {props.action === 'Edit' && <button className="btn btn-warning ms-5" type="submit">Edit Club</button>}
+
     </form>
   );
 

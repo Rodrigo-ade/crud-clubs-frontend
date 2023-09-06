@@ -15,8 +15,8 @@ function App() {
         <Routes>
           <Route path='/' element={<List />} />
           <Route path='/clubs/:clubTla' element={<Team />} />
-          <Route path='/form' element={<Form />} />
-          <Route path='/edit/clubs/:clubTla' element={<Form />} />
+          <Route path='/form' element={<Form action={'Add'}/>} />
+          <Route path='/edit/clubs/:clubTla' element={<Form action={'Edit'}/>} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
