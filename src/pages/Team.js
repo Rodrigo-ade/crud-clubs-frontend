@@ -28,7 +28,7 @@ function Team() {
       </div>
       <div className="">
         <div className="col text-start mt-1 p-3">
-          <p><strong>{clubData && `Phone: ${clubData.phone}`}</strong></p>
+          <p><strong>{clubData && clubData.phone != null && `Phone: ${clubData.phone}`}</strong></p>
           <p><strong>{clubData && clubData.email != null && `Email: ${clubData.email}`}</strong></p>
         </div>
         <div className="col mt-1 pb-5">
