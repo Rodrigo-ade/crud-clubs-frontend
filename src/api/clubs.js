@@ -11,3 +11,7 @@ export async function getClub(clubTla) {
 export async function addClub(clubData) {
   return (await fetch(`${URL}/clubs`, {method: 'POST', body: clubData}));
 }
+
+export async function deleteClub(clubTla) {
+  return (await fetch(`${URL}/clubs/${clubTla}`, {method: 'DELETE'}));
+}
