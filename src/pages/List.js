@@ -9,7 +9,8 @@ function List() {
   useEffect(() => {
     getClubs()
       .then((clubs) => {
-        setClubsList(clubs.map((club) => <ListedTeam name={club.name} crestUrl={club.crestUrl} tla={club.tla} key={club.id}/>))
+        const orderedClubs = clubs.sort((a,b) => (a.name > b.name ? 1 : (b.name > a.name) ? -1 : 0));
+        setClubsList(orderedClubs.map((club) => <ListedTeam name={club.name} crestUrl={club.crestUrl} tla={club.tla} key={club.id}/>))
       })
       .catch(err => {
         setClubsList([]);
