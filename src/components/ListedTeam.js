@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { deleteClub } from "../services/clubs";
+import RemoveButton from '../components/RemoveButton';
+import ActionButton from "./ActionButton";
 
 function ListedTeam(props) {
   const [status, setStatus] = useState('');
@@ -18,12 +20,12 @@ function ListedTeam(props) {
     <li className="list-group-item listed-club">
       <div className="row">
         <div className="col align-self-center">
-          <h3>{props.name}</h3>
+          <h5>{props.name}</h5>
         </div>
         <div className="col align-self-center">
-          <a href={`/clubs/${props.tla}`}><button className="btn btn-sm btn-success m-1">Info</button></a>
-          <a href={`/edit/clubs/${props.tla}`}><button className="btn btn-sm btn-info m-1">Edit</button></a>
-          <button className="btn btn-sm btn-warning m-1" onClick={() => handleRemove(`${props.tla}`)}>Remove</button>
+          <a className="m-1" href={`/clubs/${props.tla}`}><ActionButton text='Info'></ActionButton></a>
+          <a className="m-1" href={`/edit/clubs/${props.tla}`}><ActionButton text='Edit'></ActionButton></a>
+          <RemoveButton onClick={() => handleRemove(`${props.tla}`)} >Remove</RemoveButton>
           <p style={{color:'red'}}>{status === 'error' && `Oops! try again later`}</p>
         </div>
         <div className="col align-self-center">

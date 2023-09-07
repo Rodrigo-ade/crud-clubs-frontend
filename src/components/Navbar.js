@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar mb-3">
+    <nav className="navbar mb-1">
       <div>
         <ul className="navbar-nav flex-row">
           <li className="nav-item text-center me-3">

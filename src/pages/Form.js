@@ -4,6 +4,7 @@ import { addClub, getClub, editClub } from '../services/clubs.js';
 import NotFound from './NotFound.js';
 import Loading from '../components/Loading.js';
 import Success from '../components/Success.js';
+import ActionButton from '../components/ActionButton.js';
 
 
 function Form(props) {
@@ -63,7 +64,7 @@ function Form(props) {
   },[clubTla]);
 
   const form =(
-    <form className="form-new-club mb-5 p-3" encType="multipart/form-data" onSubmit={props.action === 'Add' ? handleAdd: handleEdit}>
+    <form className="form-new-club mb-5 p-2" encType="multipart/form-data" onSubmit={props.action === 'Add' ? handleAdd: handleEdit}>
       <h1 className="text-center">{props.action === 'Add' && `Add club`}</h1>
       <h1 className="text-center">{props.action === 'Edit' && `Edit club`}</h1>
       <div style={{width:"70%", margin:"0 auto"}}>
@@ -157,9 +158,12 @@ function Form(props) {
           />
         </div>
       </div>
-        
-      {props.action === 'Add' && <button className="btn btn-success ms-5" type="submit">Add Club</button>}
-      {props.action === 'Edit' && <button className="btn btn-warning ms-5" type="submit">Edit Club</button>}
+
+      <div className="text-center mt-1">
+        {props.action === 'Add' && <ActionButton type="submit" text="Add Club"></ActionButton>}
+        {props.action === 'Edit' && <ActionButton type="submit" text="Edit Club"></ActionButton>}
+      </div>
+
 
     </form>
   );

@@ -18,8 +18,8 @@ function List() {
   },[]);
 
   const list = (
-    <div className="container text-center mt-1 mb-5">
-      <h1 className="mb-3"><strong>{clubsList && clubsList.length}</strong> clubs in database</h1>
+    <div className="container text-center mb-5">
+      <h1 className="mb-3 list-title"><strong>{clubsList && clubsList.length}</strong> clubs in database</h1>
       <div className="row">
         <div className="align-self-center">
           <ul className="col-8 club-list list-group">
