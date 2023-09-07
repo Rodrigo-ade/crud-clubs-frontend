@@ -82,8 +82,8 @@ function Form(props) {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="tlaClubName" className="form-label">Three-letter acronym</label>
-          <input required type="text" className="form-control disabled" id="tlaClubName" name="tla" 
+          <label htmlFor="tlaClubName" className="form-label">Three-letter acronym  <span style={{color: 'white'}}>(capital letters)</span></label>
+          <input required type="text" className="form-control disabled" id="tlaClubName" name="tla" pattern='[A-Z]{3}'
             placeholder="BOC" value={tla} onChange={e => setTla(e.target.value)} readOnly={props.action === 'Edit' && true}
           />
         </div>
