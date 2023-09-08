@@ -1,4 +1,4 @@
-const URL = 'http://localhost:8080';
+const URL = 'https://crud-clubs-back-deploy.onrender.com';
 
 export async function getClubs() {
   return (await fetch(`${URL}/clubs`)).json();
