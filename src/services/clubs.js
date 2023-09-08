@@ -4,6 +4,7 @@ import {
   addClub as addClubToApi,
   deleteClub as deleteClubFromApi,
   editClub as editClubOfApi,
+  restoreClubs as restoreClubsFromApi,
 
 } from '../api/clubs.js';
 
@@ -29,4 +30,8 @@ export async function deleteClub(clubTla) {
 
 export async function editClub(clubTla, clubData) {
   return await (editClubOfApi(clubTla, clubData));
+}
+
+export async function restoreCLubs() {
+  return await (restoreClubsFromApi());
 }

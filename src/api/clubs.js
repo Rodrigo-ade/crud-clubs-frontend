@@ -19,3 +19,7 @@ export async function deleteClub(clubTla) {
 export async function editClub(clubTla, clubData) {
   return (await fetch(`${URL}/clubs/${clubTla}`, {method: 'PUT', body: clubData}));
 }
+
+export async function restoreClubs() {
+  return (await fetch(`${URL}/clubs/restore`, {method:'POST'}));
+}
